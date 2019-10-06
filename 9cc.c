@@ -143,7 +143,7 @@ Token *tokenize(char *p) {
       continue;
     }
 
-    if (*p == '+' || *p == '-') { 
+    if (*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '(' || *p == ')') { 
       cur = new_token(TK_RESERVED, cur, p++);
       continue;
     }
@@ -186,7 +186,7 @@ Node *unary() {
 
 // mulパーサの生成
 Node *mul() {
-  Node *node = primary();
+  Node *node = unary();
 
   for (;;) {
     if(consume('*'))

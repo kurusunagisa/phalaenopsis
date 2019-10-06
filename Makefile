@@ -5,6 +5,9 @@ CFLAGS=-std=c11 -g -static
 test: 9cc
 	        ./test.sh
 
+git:
+		./git.sh
+
 clean:
 	        rm -f 9cc *.o *~ tmp*
 
